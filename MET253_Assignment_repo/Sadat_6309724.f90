@@ -1,10 +1,10 @@
 PROGRAM student_grades
 IMPLICIT NONE 
-INTEGER,DIMENSION(10) :: scores= (/85,62,45,91,38,74,88,61,47/) !added (10) and scores to declare array size
+INTEGER,DIMENSION(10) :: scores= (/85,62,45,91,38,74,55,88,61,47/) ! added (10) and scores to declare array size
 INTEGER :: i
 CHARACTER(len=1) ::grade
-CHARACTER(len=11): remark !added remark variable because the assignment requires remark in the output
-WRITE(*,'(A15,I10,A10,A15)') "SCORE","GRADE","REMARK" !ADDED WRITE STATEMENT BECAUSE THE ASSIGNMENT REQUIRES A NEATLY FORMATTED REPORT USING FORMAT STATEMENT
+CHARACTER(len=11)::remark ! added remark variable because the assignment requires remark in the output
+WRITE(*,'(A15,A10,A10,A15)') "S/N","SCORE","GRADE","REMARK" !ADDED WRITE STATEMENT BECAUSE THE ASSIGNMENT REQUIRES A NEATLY FORMATTED REPORT USING FORMAT STATEMENT
 
 DO i=1,10
 !UPDATED RANGES TO MATCH THE GRADING SCHEME IN THE ASSIGNMENT
@@ -25,5 +25,5 @@ END IF
 WRITE(*,'(I15,I10,A10,A15)') i,scores(i),grade,remark !added 'remark' to the write statement so it appears in the report
 END DO 
 PRINT*,"End of Report"
-END PROGRAM student grades
+END PROGRAM student_grades
 !Ibrahim Sadat
