@@ -1,34 +1,32 @@
-PROGRAM student grades
+PROGRAM student_grades
 IMPLICIT NONE 
-INTEGER,DIMENSION :: scores
+INTEGER,DIMENSION(10) :: scores= (/85,62,45,91,38,74,55,88,61,47/) !added (10) and scores to declare array size
 INTEGER :: i
 CHARACTER(len=1) ::grade
-scores=(/85,62,45,91,38,74,88,61,47)
-PRINT*,"                                            " 
-PRINT*," KUMASI SECONDARY SCHOOL-MATHEMATICS CLASS "
-PRINT*," END OF SEMESTER REPORT
-PRINT*,"                                             "
-PRINT*," STUDENT NUMBER. SCORE GRADE " 
+CHARACTER(len=11):: remark !added remark variable because the assignment requires remark in the output
+PRINT*,"KUMASI SECONDARY SCHOOL-MATHEMATICS CLASS"
+PRINT*,"END OF SEMESTER REPORT"
+PRINT*,"STUDENT NUMBER. SCORE GRADE"
+WRITE(*,'(A15,A10,A10,A15)') "STUDENT NUMBER","SCORE","GRADE","REMARK" !ADDED WRITE STATEMENT BECAUSE THE ASSIGNMENT REQUIRES A NEATLY FORMATTED REPORT USING FORMAT STATEMENT
 
 DO i=1,10
-IF (scores(i)>= 80) THEN,
+!UPDATED RANGES TO MATCH THE GRADING SCHEME IN THE ASSIGNMENT
+!changed (score(i)) to (scores(i)) to match variable declaration
+IF (scores(i)>= 80) THEN
 grade ='A'
-ELSE IF (score(i)>=70) THEN,
+remark ='Distinction'
+ELSE IF (scores(i)>=60) THEN
 grade = 'B'
-ELSE IF (score(i)>= 60) THEN,
+remark = 'Credit'
+ELSE IF (scores(i)>= 40) THEN
 grade = 'C'
-ELSE IF (score(i)>=50) THEN,
-grade = 'D'
-ELSE IF (score(i)>=40) THEN,
-grade = 'E'
-ELSE 
-grade = 'F'
-WRITE(*,'(I11,I10,A8)')I, SCORES(I), GRADE 
+remark = 'Pass'
+ELSE
+grade ='F'
+remark = 'Fail'
+END IF
+WRITE(*,'(I15,I10,A10,A15)') i,scores(i),grade,remark !added 'remark' to the write statement so it appears in the report
 END DO 
-PRINT*,""
-PRINT*,"                                                "
 PRINT*,"End of Report"
-PRINT*,"                                                "
-END PROGRAM student grades
-END PROGRAM
+END PROGRAM student_grades
 !okang joseph boye
